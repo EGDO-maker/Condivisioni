@@ -2,6 +2,7 @@
 #define menu_lcd_h
 #include <stdlib.h>
 
+
 /* 
  * This class create a menu object to manage the string output for a LCD screen of 2 rows.
  * It should make it easier to define menu lists to manage the cursor position in order to select a specific task 
@@ -10,11 +11,12 @@
  * Each menu object in the sketch should have an unique menu number to set in the instaces of the class.
  * To manage menu variables you should define an array of floats [N][4] where a value, an lower and upper limit 
  * is set, you can also specify a quantity to increase or decrease the values trough menu.
- * In this version each menu can contain at max 10 arguments.
+ * In this version each menu can contain at max 10 arguments (maybe too much).
  * It is possible to assign e modify values trough a sub menu or confirm an action.
  * 
  * Egidio Fabris - 26/03/2020 
 */
+
 class MenuLCD {
   private :
     byte menu_id, prev_id;
