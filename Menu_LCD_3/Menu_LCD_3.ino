@@ -1,5 +1,7 @@
 #include "MenuLCD.h"
 
+// This is an usage example code 
+
 MenuLCD *menu[4];
 
 char cmd = "";
@@ -10,7 +12,7 @@ byte menu_pos = 0;
  * indexes[][1]: should be the bottom limits of the range - required
  * indexes[][2]: should be the top limits of the range - required
  * indexes[][3]: should be the incremental step in changing values - optional
- * if not specified is set to 1/20 of range
+ * if not specified it's set to 1/20 of range
  */
 float values[][4] = {
   {0.0, 0.0, 5.0, 1.0},  
@@ -41,15 +43,15 @@ void setup() {
   menu[2] -> set_list(F("Qui"), F("Quo"), F("Qua"));
   menu[3] -> set_list(F("Tizio"), F("Caio"));
 /*  
- * Reference to the next menu for each elemento of a menu. Insert 255 to set a variable setting 
- * or to a dead end. Insert a value of 254 to confirm an action (a variable in a 0-1 range is request).
+ * Reference to the next menu for each element of a menu. Insert 255 to set a variable setting 
+ * or to a dead end. Insert a value of 254 to confirm an action (a variable in a 0-1 range is requested).
  */
   menu[0] -> set_next(1, 2, 255);
   menu[1] -> set_next(255, 255, 255);
   menu[2] -> set_next(255, 3, 255);
   menu[3] -> set_next(254, 255);  
 /*  
- * Reference to the variables in the values array (for each elemento of a menu). 
+ * Reference to the variables in the values array (for each element of a menu). 
  * Insert 255 to lead to a new menu or dead end.
  */
   menu[0] -> set_val_ref(255, 255, 0);
@@ -57,7 +59,7 @@ void setup() {
   menu[2] -> set_val_ref(4, 255, 255);
   menu[3] -> set_val_ref(6, 5);
 /*
- * ser user defined strings displayed during the confirm and change value mode
+ * set user defined strings displayed during the confirm and change value mode
  */
   menu[0] -> set_conf_str(F("Confermi ?"), F("Sì"), F("No"), F("SAME"));
   menu[1] -> set_conf_str(F("Confermi ?"), F("Sì"), F("No"), F("SAME"));
